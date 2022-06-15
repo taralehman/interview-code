@@ -12,6 +12,13 @@ class Counter extends React.Component {
 
   componentDidUpdate() {
     document.title = `Count: ${this.state.count}`;
+    return fetch('someapi/v1/things')
+    .then((res) => { 
+        return res.json()
+    })
+    .then((data)=> {
+        return data.count
+    })
   }
   render() {
     return (
